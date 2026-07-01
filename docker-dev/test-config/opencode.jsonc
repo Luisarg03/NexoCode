@@ -1,0 +1,20 @@
+// OpenDrift — dev/test configuration
+// Used inside the docker-dev container via OPENCODE_CONFIG env var
+{
+  "model": "opencode/deepseek-v4-flash-free",
+  "permission": {
+    "write": "ask",
+    "edit": "ask",
+    "bash": {
+      "*": "ask",
+      "git status": "allow",
+      "git diff": "allow",
+      "git log *": "allow",
+      "ls *": "allow",
+      "bun test *": "allow",
+      "bun run *": "allow",
+      "bun turbo *": "allow"
+    }
+  },
+  "lsp": false
+}
