@@ -1,0 +1,23 @@
+name: opendrift-dev
+services:
+  opendrift-dev:
+    build:
+      context: ..
+      dockerfile: docker-dev/Dockerfile
+      network: host
+    image: opendrift-dev:latest
+    container_name: opendrift-dev
+    stdin_open: true
+    tty: true
+    environment:
+      - OPENCODE_API_KEY=${OPENCODE_API_KEY:-}
+      - OPENCODE_CONFIG=/workspace/docker-dev/test-config/opencode.jsonc
+    volumes:
+      - ..:/workspace:rw
+      - bun-cache:/root/.bun/install/cache
+      - ../src/node_modules:/workspace/src/node_modules
+    network_mode: host
+    working_dir: /workspace/src
+
+volumes:
+  bun-cache:
