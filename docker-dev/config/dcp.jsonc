@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Opencode-DCP/opencode-dynamic-context-pruning/master/dcp.schema.json",
+
+  // Enable plugin
+  "enabled": true,
+
+  // Auto-update DCP when newer npm version available
+  "autoUpdate": true,
+
+  // Debug logging off unless troubleshooting
+  "debug": false,
+
+  // Minimal notifications - enough info, no noise
+  "pruneNotification": "detailed",
+
+  // Use chat notifications (keeps history)
+  "pruneNotificationType": "chat",
+
+  // Slash commands enabled for manual control
+  "commands": {
+    "enabled": true,
+    // Add workflow-specific tools to protect from /dcp sweep
+    "protectedTools": ["subtask", "plan"]
+  },
+
+  // Manual mode off - let AI auto-manage context
+  "manualMode": {
+    "enabled": false,
+    "automaticStrategies": true
+  },
+
+  // Protect last 4 turns from pruning - preserves active work context
+  "turnProtection": {
+    "enabled": true,
+    "turns": 4
+  },
+
+  // Enable subagent DCP processing - they also benefit
+  "experimental": {
+    "allowSubAgents": true,
+    "customPrompts": false
+  },
+
+  // Protect key project files from pruning by path pattern
+  "protectedFilePatterns": [
+    "**/*.md",
+    "**/*.jsonc",
+    "**/*.json",
+    "**/AGENTS.md",
+    "**/.opencode/**"
+  ],
+
+  // Compression settings
+  "compress": {
+    // Range mode: stable, compresses conversation spans into summaries
+    "mode": "range",
+
+    // Allow compression without prompting
+    "permission": "allow",
+
+    // Don't show compression content in chat (too noisy)
+    "showCompression": false,
+
+    // Let active summaries extend effective context limit
+    "summaryBuffer": true,
+
+    // Soft upper limit: above this DCP strongly nudges compression
+    "maxContextLimit": 100000,
+
+    // Soft lower limit: below this nudges stop
+    "minContextLimit": 40000,
+
+    // Nudge every 4 fetches when over limit
+    "nudgeFrequency": 4,
+
+    // Start iteration nudges after 15 messages since last user msg
+    "iterationNudgeThreshold": 15,
+
+    // Soft nudges - less aggressive
+    "nudgeForce": "soft",
+
+    // Protect specialist agent outputs in compression summaries
+    "protectedTools": [
+      "task",
+      "skill",
+      "subtask",
+      "todowrite",
+      "todoread",
+      "explorer",
+      "librarian",
+      "oracle",
+      "designer",
+      "fixer"
+    ],
+
+    // Respect <protect>...</protect> tags in content
+    "protectTags": true,
+
+    // Don't protect all user messages (would prevent compressing large prompts)
+    "protectUserMessages": false
+  },
+
+  // Automatic pruning strategies
+  "strategies": {
+    // Dedup repeated tool calls (same tool + args)
+    "deduplication": {
+      "enabled": true,
+      "protectedTools": ["task", "skill", "subtask"]
+    },
+    // Prune errored tool inputs after 3 turns
+    "purgeErrors": {
+      "enabled": true,
+      "turns": 3,
+      "protectedTools": []
+    }
+  }
+}

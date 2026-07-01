@@ -1,0 +1,58 @@
+{
+  "preset": "free-opencode",
+  "presets": {
+    "free-opencode": {
+      "orchestrator": {
+        "model": "opencode/kimi-k2.6",
+        "skills": ["*"],
+        "mcps": ["*", "!context7"]
+      },
+      "oracle": {
+        "model": ["opencode/kimi-k2.6", "opencode/kimi-k2.6"],
+        "skills": ["simplify"],
+        "mcps": []
+      },
+      "council": {
+        "model": ["opencode/kimi-k2.6", "opencode/deepseek-v4-flash-free"],
+        "skills": [],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "opencode/deepseek-v4-flash-free",
+        "skills": [],
+        "mcps": ["websearch", "grep_app"]
+      },
+      "explorer": {
+        "model": "opencode/deepseek-v4-flash-free",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": ["opencode/mimo-v2.5-free", "opencode/deepseek-v4-flash-free"],
+        "skills": ["frontend-design"],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "opencode/deepseek-v4-flash-free",
+        "skills": ["codemap", "refactor"],
+        "mcps": []
+      },
+      "observer": {
+        "model": "opencode/mimo-v2.5-free",
+        "skills": [],
+        "mcps": []
+      },
+      "validator": {
+        "model": "opencode/deepseek-v4-flash-free",
+        "skills": [],
+        "mcps": []
+      }
+    }
+  },
+  "fallback": {
+    "enabled": true,
+    "timeoutMs": 120000,
+    "retryDelayMs": 500,
+    "retry_on_empty": true
+  }
+}
