@@ -36,19 +36,15 @@ bun turbo typecheck  # typecheck all packages
 bun turbo test       # run full test suite
 ```
 
-## Supported Providers
+## Provider: OpenCode Zen
 
-Set any of these environment variables — the container passes them through automatically:
+NexoCode works exclusively with [OpenCode Zen](https://opencode.ai/zen) — the opencode.ai API gateway.
 
-| Variable | Provider |
-|---|---|
-| `ANTHROPIC_API_KEY` | Anthropic (Claude) |
-| `OPENROUTER_API_KEY` | OpenRouter (multi-model gateway) |
-| `OPENAI_API_KEY` | OpenAI |
-| `NVIDIA_API_KEY` | NVIDIA / NIM |
-| `BRAVE_API_KEY` | Brave Search |
+```bash
+export OPENCODE_API_KEY=your-zen-key
+```
 
-Additional providers: Google, AWS Bedrock, Azure, Mistral, Groq, Cohere, Perplexity, TogetherAI, xAI, DeepInfra, Cerebras, Alibaba, Venice, GitLab.
+Get a key at https://opencode.ai/zen. Free tier available (rate-limited free models).
 
 ## Repository Layout
 

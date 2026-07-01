@@ -2,6 +2,7 @@
 // Used inside the docker-dev container via OPENCODE_CONFIG env var
 {
   "model": "opencode/deepseek-v4-flash-free",
+  "enabled_providers": ["opencode"],
   "permission": {
     "write": "ask",
     "edit": "ask",
