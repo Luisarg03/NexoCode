@@ -11,7 +11,6 @@ services:
     tty: true
     environment:
       - OPENCODE_API_KEY=${OPENCODE_API_KEY:-}
-      - OPENCODE_CONFIG=/workspace/docker-dev/test-config/opencode.jsonc
     volumes:
       - ..:/workspace:rw
       - bun-cache:/root/.bun/install/cache

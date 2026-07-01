@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g node-gyp
 RUN git config --global --add safe.directory '*'
+COPY docker-dev/config /root/.config/opencode
+RUN cd /root/.config/opencode && npm install --no-audit --no-fund
 WORKDIR /workspace/src
 COPY docker-dev/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
