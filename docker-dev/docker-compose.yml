@@ -1,12 +1,12 @@
-name: opendrift-dev
+name: nexocode-dev
 services:
-  opendrift-dev:
+  nexocode-dev:
     build:
       context: ..
       dockerfile: docker-dev/Dockerfile
       network: host
-    image: opendrift-dev:latest
-    container_name: opendrift-dev
+    image: nexocode-dev:latest
+    container_name: nexocode-dev
     stdin_open: true
     tty: true
     environment:
