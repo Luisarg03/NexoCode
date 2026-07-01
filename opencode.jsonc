@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["./AGENTS.md"],
+  "command": {
+    "smoke": {
+      "description": "Run NexoCode container smoke test (config + API + model response)",
+      "template": "Run the smoke test: !`bash docker-dev/smoke-test.sh` — analyze results and report PASSED/FAILED with diagnosis of any failures."
+    }
+  }
+}
