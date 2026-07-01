@@ -27,7 +27,7 @@ cp docker-dev/.env.example docker-dev/.env
 docker compose -f docker-dev/docker-compose.yml build
 
 # 3. Start the container
-docker compose -f docker-dev/docker-compose.yml run -it opendrift-dev
+docker compose -f docker-dev/docker-compose.yml run -it nexocode-dev
 ```
 
 Inside the container shell:

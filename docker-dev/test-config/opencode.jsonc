@@ -1,4 +1,4 @@
-// OpenDrift — dev/test configuration
+// NexoCode — dev/test configuration
 // Used inside the docker-dev container via OPENCODE_CONFIG env var
 {
   "model": "opencode/deepseek-v4-flash-free",

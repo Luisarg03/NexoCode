@@ -1,10 +1,10 @@
-# OpenDrift
+# NexoCode
 
 > **⚠️ Status: Heavily WIP — not stable.**
 
 Independent fork of [opencode](https://github.com/sst/opencode) — the open-source AI coding agent CLI.
 
-## What OpenDrift Changes
+## What NexoCode Changes
 
 | Area | Change |
 |------|--------|
@@ -17,15 +17,15 @@ Independent fork of [opencode](https://github.com/sst/opencode) — the open-sou
 
 ```bash
 # 1. Clone
-git clone https://github.com/Luisarg03/OpenDrift
-cd OpenDrift
+git clone https://github.com/NexoCode/NexoCode
+cd NexoCode
 
 # 2. Build image (first time ~5–10 min — downloads Node.js, bun, native build tools)
 docker compose -f docker-dev/docker-compose.yml build
 
 # 3. Set at least one API key and run
 export ANTHROPIC_API_KEY=sk-ant-...   # or any supported provider below
-docker compose -f docker-dev/docker-compose.yml run -it opendrift-dev
+docker compose -f docker-dev/docker-compose.yml run -it nexocode-dev
 ```
 
 Inside the container shell:
@@ -53,7 +53,7 @@ Additional providers: Google, AWS Bedrock, Azure, Mistral, Groq, Cohere, Perplex
 ## Repository Layout
 
 ```
-OpenDrift/
+NexoCode/
 ├── docker-dev/              # Docker dev environment
 │   ├── Dockerfile           #   oven/bun:1.3.14 + nodejs + node-gyp + build tools
 │   ├── docker-compose.yml   #   host-network, named volumes for bun cache + node_modules
